@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>React-credit-card by YOTOV-LIMITED</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">React-credit-card</h1>
+      <h2 class="project-tagline">React port of the display part of Card by @jessepollak</h2>
+      <a href="https://github.com/YOTOV-LIMITED/react-credit-card" class="btn">View on GitHub</a>
+      <a href="https://github.com/YOTOV-LIMITED/react-credit-card/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/YOTOV-LIMITED/react-credit-card/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="react-credit-card" class="anchor" href="#react-credit-card" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>React credit card</h1>
+
+<h5>
+<a id="react-port-of-the-display-part-of-card-by-jessepollak" class="anchor" href="#react-port-of-the-display-part-of-card-by-jessepollak" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>React port of the display part of <a href="http://github.com/jessepollak/card">Card</a> by <a href="https://github.com/jessepollak" class="user-mention">@jessepollak</a>
+</h5>
+
+<h4>
+<a id="why" class="anchor" href="#why" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Why?</h4>
+
+<p><a href="http://github.com/jessepollak/card">Card</a> looks amazing on any form, but it interacts with the dom in a more classic javascript interface, which is incompatible with react.</p>
+
+<h4>
+<a id="goals" class="anchor" href="#goals" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Goals</h4>
+
+<ul>
+<li>Look like <a href="http://github.com/jessepollak/card">Card</a>.</li>
+<li>Provide a react interface for displaying credit card information.</li>
+</ul>
+
+<h4>
+<a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to install</h4>
+
+<ul>
+<li><code>npm install react-credit-card</code></li>
+<li>Add the <code>build/card.css</code> and <code>build/card-types.css</code> files to your app's stylesheets (This step may be unnecessary in the future)</li>
+</ul>
+
+<h4>
+<a id="how-to-use-check-the-test-indexcjsx-for-a-better-overview" class="anchor" href="#how-to-use-check-the-test-indexcjsx-for-a-better-overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use (Check the test index.cjsx for a better overview)</h4>
+
+<div class="highlight highlight-source-js-jsx"><pre><span class="pl-smi">Card</span> <span class="pl-k">=</span> <span class="pl-en">require</span>(<span class="pl-s"><span class="pl-pds">'</span>react-credit-card<span class="pl-pds">'</span></span>)
+<span class="pl-smi">React</span><span class="pl-k">.</span><span class="pl-en">render</span>(
+ &lt;<span class="pl-ent"><span class="pl-c1">Card</span></span> 
+    <span class="pl-e">cvc</span> <span class="pl-k">=</span> <span class="pl-pse">{</span><span class="pl-s1"><span class="pl-smi">myForm</span><span class="pl-k">.</span><span class="pl-smi">props</span><span class="pl-k">.</span><span class="pl-smi">cvc</span></span><span class="pl-pse">}</span> 
+    <span class="pl-e">name</span> <span class="pl-k">=</span> <span class="pl-pse">{</span><span class="pl-s1"><span class="pl-smi">myForm</span><span class="pl-k">.</span><span class="pl-smi">props</span><span class="pl-k">.</span><span class="pl-smi">name</span></span><span class="pl-pse">}</span> 
+    <span class="pl-e">focused</span> <span class="pl-k">=</span> <span class="pl-pse">{</span><span class="pl-s1"><span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span></span><span class="pl-pse">}</span>/&gt; <span class="pl-c">// The form turns around when focused is "cvc"</span>
+,<span class="pl-c1">document</span><span class="pl-k">.</span><span class="pl-smi">body</span>)</pre></div>
+
+<h3>
+<a id="available-props" class="anchor" href="#available-props" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Available props</h3>
+
+<ul>
+<li>
+<code>cvc</code>: number(max 4 characters, will cut the rest)(The "/" will be automatically added)</li>
+<li>
+<code>name</code>: string (max 2 lines)</li>
+<li>
+<code>number</code>: credit card number(max 16 characters, will cut the rest)</li>
+<li>
+<code>expiry</code>: number(max 4 characters, will cut the rest) </li>
+<li>
+<code>focused</code>: one of the above fields
+
+<ul>
+<li>name</li>
+<li>number</li>
+<li>expiry</li>
+<li>cvc (Upon focusing cvc, the form will be rotated until this is changed.)</li>
+<li>null</li>
+</ul>
+</li>
+<li>
+<code>namePlaceholder</code>: The text displayed as placeholder of name field (default is: "FULL NAME")</li>
+<li>
+<code>expiryAfter</code>: The text displayed on the left of the expiry date</li>
+<li>
+<code>expiryBefore</code>: The text displayed above the expiry date</li>
+<li>
+<code>shinyAfterBack</code>: The text displayed at the back of the card near the shiny thing</li>
+<li>
+<code>type</code>: Available in case you need to explicitly specify the card type. In most cases this will be inferred for you as the user fills the form, so you won't need to use it. One of the following:
+
+<ul>
+<li>dankort</li>
+<li>discover</li>
+<li>mastercard</li>
+<li>visa</li>
+<li>amex</li>
+</ul>
+</li>
+</ul>
+
+<h4>
+<a id="missing-features-towards-the-intended-goals" class="anchor" href="#missing-features-towards-the-intended-goals" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Missing features towards the intended goals</h4>
+
+<ul>
+<li>Images are inlined using base64, <a href="http://github.com/jessepollak/card">Card</a> uses images created with css.</li>
+</ul>
+
+<h4>
+<a id="planned-improvements" class="anchor" href="#planned-improvements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Planned improvements</h4>
+
+<ul>
+<li>Allow for some way to indicate that a field is invalid, and style appropriately to indicate errors. </li>
+<li>Add more credit card variations, to the extent that <a href="http://github.com/jessepollak/card">Payment</a> supports. </li>
+<li>Maybe inline styles according to facebook's new guidelines, for now the styles are in a separate stylesheet.</li>
+<li>Automated test suite.</li>
+</ul>
+
+<h4>
+<a id="intentional-deviations" class="anchor" href="#intentional-deviations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Intentional deviations</h4>
+
+<ul>
+<li>There is no intention to port the form or validation part of <a href="http://github.com/jessepollak/card">Card</a>. This is merely for display.</li>
+<li>Flat background colors for the various cards.</li>
+<li>Placeholder symbols are progressively filled while changing the values.</li>
+</ul>
+
+<h4>
+<a id="development" class="anchor" href="#development" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Development</h4>
+
+<ul>
+<li>Clone the repo</li>
+<li>Run npm install</li>
+<li>Run npm start</li>
+<li>Use test/index.html for testing behaviour and display</li>
+</ul>
+
+<p>It was developed on a local webserver so it doesn't come with any server tools.
+If someone wants to add a more fleshed out build/testing process (gulp/grunt/webpack) it's very much welcome.</p>
+
+<p>Most of the credit goes to <a href="https://github.com/jessepollak" class="user-mention">@jessepollak</a> for creating and mantaining <a href="http://github.com/jessepollak/card">Card</a>, I just ported it over.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/YOTOV-LIMITED/react-credit-card">React-credit-card</a> is maintained by <a href="https://github.com/YOTOV-LIMITED">YOTOV-LIMITED</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
